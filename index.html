@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Ishaant 🎂</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #050510;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 0, 128, .18), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(0, 153, 255, .18), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(128, 0, 255, .2), transparent 35%),
+        #050510;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 45px 45px;
+    opacity: .15;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.card {
+    width: min(900px, 95%);
+    padding: 60px 30px;
+    border-radius: 35px;
+
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.5),
+        inset 0 0 40px rgba(255,255,255,.03);
+
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.small {
+    letter-spacing: 5px;
+    font-size: 14px;
+    opacity: .7;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(50px, 10vw, 100px);
+
+    background: linear-gradient(
+        90deg,
+        #ff4ecd,
+        #ffffff,
+        #6dc8ff,
+        #ff4ecd
+    );
+
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: gradient 5s infinite linear;
+}
+
+@keyframes gradient {
+    0% { background-position: 0%; }
+    100% { background-position: 300%; }
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-top: 10px;
+    opacity: .8;
+}
+
+/* BUTTON */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.main-btn {
+    margin-top: 35px;
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        90deg,
+        #ff3cac,
+        #784ba0,
+        #2b86c5
+    );
+
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+
+    box-shadow: 0 10px 30px rgba(255,0,150,.3);
+
+    transition: .3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255,0,150,.5);
+}
+
+/* GIFT */
+
+.gift-section {
+    margin-top: 50px;
+}
+
+.gift {
+    font-size: 100px;
+    cursor: pointer;
+
+    display: inline-block;
+
+    filter: drop-shadow(0 10px 20px rgba(255,0,150,.3));
+
+    transition: .3s;
+
+    animation: giftFloat 2s infinite ease-in-out;
+}
+
+@keyframes giftFloat {
+    0%,100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+.gift:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* MESSAGE */
+
+.message {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transition: 1s ease;
+
+    margin-top: 30px;
+}
+
+.message.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.message-box {
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.message-box h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.message-box p {
+    line-height: 1.9;
+    opacity: .85;
+}
+
+/* BALLOONS */
+
+.balloon {
+    position: fixed;
+    bottom: -150px;
+
+    width: 55px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    opacity: .75;
+
+    z-index: -1;
+
+    animation: balloonUp linear infinite;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+
+    width: 1px;
+    height: 100px;
+
+    background: rgba(255,255,255,.4);
+
+    left: 50%;
+    top: 68px;
+}
+
+@keyframes balloonUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-120vh);
+    }
+}
+
+/* COUNTDOWN */
+
+.countdown {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time {
+    min-width: 80px;
+
+    padding: 15px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.time span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.time small {
+    opacity: .5;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    opacity: .4;
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .card {
+        padding: 45px 20px;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .gift {
+        font-size: 80px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- BALLOONS -->
+
+<div class="balloon" style="left:5%; animation-duration:12s;"></div>
+<div class="balloon" style="left:20%; animation-duration:16s;"></div>
+<div class="balloon" style="left:75%; animation-duration:14s;"></div>
+<div class="balloon" style="left:90%; animation-duration:18s;"></div>
+
+<section class="hero">
+
+<div class="card">
+
+<div class="small">
+A little surprise for
+</div>
+
+<h1>Ishaant</h1>
+
+<div class="subtitle">
+✨ Happy Birthday, Ishaant Kaushik! ✨
+</div>
+
+<button class="main-btn" onclick="celebrate()">
+🎉 Start The Celebration
+</button>
+
+<div class="gift-section">
+
+<div class="gift" onclick="openGift()">
+🎁
+</div>
+
+<p style="opacity:.5;">
+Tap the gift 👆
+</p>
+
+<div class="message" id="message">
+
+<div class="message-box">
+
+<h2>🥳 Happy Birthday Bro!</h2>
+
+<p>
+Ishaant, today is your day! 🎂
+</p>
+
+<p>
+Another year, another level unlocked. 🚀
+</p>
+
+<p>
+Keep laughing, keep growing, keep doing crazy
+things and most importantly — keep being the
+same amazing person you are.
+</p>
+
+<p>
+Here's to more memories, more adventures,
+more bakchodi and obviously more birthdays! 😂🔥
+</p>
+
+<br>
+
+<h3>
+Have an absolutely amazing birthday! ❤️
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="countdown">
+
+<div class="time">
+<span id="days">00</span>
+<small>Days</small>
+</div>
+
+<div class="time">
+<span id="hours">00</span>
+<small>Hours</small>
+</div>
+
+<div class="time">
+<span id="minutes">00</span>
+<small>Minutes</small>
+</div>
+
+<div class="time">
+<span id="seconds">00</span>
+<small>Seconds</small>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+Made with ❤️ for Ishaant Kaushik
+</footer>
+
+
+<script>
+
+/* OPEN GIFT */
+
+function openGift() {
+
+    const message = document.getElementById("message");
+
+    message.classList.toggle("show");
+
+    celebrate();
+}
+
+
+/* CONFETTI */
+
+function celebrate() {
+
+    for(let i = 0; i < 100; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.style.position = "fixed";
+        confetti.style.width = "8px";
+        confetti.style.height = "8px";
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.top = "-10px";
+
+        confetti.style.background =
+            `hsl(${Math.random()*360},100%,65%)`;
+
+        confetti.style.borderRadius = "50%";
+
+        confetti.style.zIndex = "9999";
+
+        document.body.appendChild(confetti);
+
+        const duration = 2000 + Math.random()*3000;
+
+        confetti.animate(
+            [
+                {
+                    transform:
+                    "translateY(0) rotate(0deg)"
+                },
+
+                {
+                    transform:
+                    `translateY(110vh) rotate(${Math.random()*1000}deg)`
+                }
+            ],
+            {
+                duration: duration,
+                easing: "cubic-bezier(.2,.8,.3,1)"
+            }
+        );
+
+        setTimeout(() => {
+            confetti.remove();
+        }, duration);
+    }
+}
+
+
+/* BIRTHDAY COUNTDOWN */
+
+const birthday = new Date("September 20, 2027 00:00:00");
+
+function updateCountdown() {
+
+    const now = new Date();
+
+    const difference = birthday - now;
+
+    if(difference <= 0) {
+
+        document.getElementById("days").innerText = "🎂";
+        document.getElementById("hours").innerText = "🎉";
+        document.getElementById("minutes").innerText = "🥳";
+        document.getElementById("seconds").innerText = "❤️";
+
+        return;
+    }
+
+    const days =
+        Math.floor(difference / (1000*60*60*24));
+
+    const hours =
+        Math.floor(
+            difference / (1000*60*60)
+        ) % 24;
+
+    const minutes =
+        Math.floor(
+            difference / (1000*60)
+        ) % 60;
+
+    const seconds =
+        Math.floor(
+            difference / 1000
+        ) % 60;
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2,"0");
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+</script>
+
+</body>
+</html>
